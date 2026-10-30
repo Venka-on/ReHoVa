@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Completed Renovation Projects Gallery | ReHoVa Interiors Singapore</title>
-<meta name="description" content="Browse completed Singapore renovation projects by ReHoVa Interiors: commercial fit-outs, medical & dental clinic suites, residential carpentry, and bespoke aquarium cabinetry.">
+<title>Renovation Gallery Singapore | ReHoVa Interiors Pte Ltd</title>
+<meta name="description" content="Explore ReHoVa Interiors renovation projects in Singapore, including residential carpentry, commercial fit-outs, medical spaces and custom cabinetry.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Renovation Gallery Singapore | ReHoVa Interiors Pte Ltd">
+<meta property="og:description" content="Explore ReHoVa Interiors renovation projects in Singapore, including residential carpentry, commercial fit-outs, medical spaces and custom cabinetry.">
+<meta property="og:url" content="https://rehova.sg/gallery.html">
+<meta property="og:image" content="https://rehova.sg/Commercial/Reception.webp">
+<meta property="og:image:alt" content="Commercial reception renovation project">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Renovation Gallery Singapore | ReHoVa Interiors Pte Ltd">
+<meta name="twitter:description" content="Explore ReHoVa Interiors renovation projects in Singapore, including residential carpentry, commercial fit-outs, medical spaces and custom cabinetry.">
+<meta name="twitter:image" content="https://rehova.sg/Commercial/Reception.webp">
 <link rel="canonical" href="https://rehova.sg/gallery.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rehova.sg/"},
+    {"@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://rehova.sg/gallery.html"}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -133,7 +153,7 @@ dialog::backdrop{background:rgba(10,11,14,.94)}
 
 <header class="banner">
   <div class="wrap">
-    <h1>Our Completed Projects</h1>
+    <h1>Renovation Project Gallery in Singapore</h1>
     <p>Explore our workmanship across commercial spaces, medical suites, residential apartments, and custom structural builds.</p>
   </div>
 </header>
@@ -165,7 +185,7 @@ dialog::backdrop{background:rgba(10,11,14,.94)}
   <div class="wrap">
     <div class="fg">
       <div>
-        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd">
+        <img loading="lazy" src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="512" height="512">
         <p style="color:#fff;font-weight:500">ReHoVa Interiors Pte Ltd</p>
         <p style="margin:4px 0 12px">UEN: 201711139N</p>
         <p>Reliable. Honest. Value for Money.</p>
@@ -206,7 +226,7 @@ dialog::backdrop{background:rgba(10,11,14,.94)}
     <button class="lb-b lb-x" aria-label="Close">&times;</button>
     <button class="lb-b lb-p" aria-label="Previous">&#8249;</button>
     <button class="lb-b lb-n" aria-label="Next">&#8250;</button>
-    <img id="lbi" alt="">
+    <img id="lbi" alt="Selected ReHoVa renovation project" width="1" height="1" loading="lazy">
     <p id="lbc"></p>
   </div>
 </dialog>
@@ -216,17 +236,16 @@ document.getElementById('burger').onclick=()=>document.getElementById('links').c
 
 const items=[
  // Residential
- {c:'residential',f:'Residential/Bathroom',l:'Bathroom'},
+ {c:'residential',f:'Residential/Bathroom.',l:'Bathroom'},
  {c:'residential',f:'Residential/Bedroom',l:'Bedroom'},
  {c:'residential',f:'Residential/Dining Room',l:'Dining Room'},
  {c:'residential',f:'Residential/Home work station',l:'Home Work Station'},
  {c:'residential',f:'Residential/Living Room',l:'Living Room'},
  {c:'residential',f:'Residential/Pantry Room',l:'Pantry Room'},
- {c:'residential',f:'Residential/Residential.5',l:'Residential Interior'},
  {c:'residential',f:'Residential/Tv cabinet with storage',l:'TV cabinet with Storage'},
  // Commercial
  {c:'commercial',f:'Commercial/Curved reception counter',l:'Curved Reception Counter'},
- {c:'commercial',f:'Commercial/Dental clinic Reception',l:'Dental clinic Reception'},
+ {c:'commercial',f:'Commercial/Dental Clinic Reception',l:'Dental clinic Reception'},
  {c:'commercial',f:'Commercial/Dental clinic shopfront',l:'Dental clinic Shopfront'},
  {c:'commercial',f:'Commercial/Dental clinic waiting Lobby',l:'Dental clinic Waiting Lobby'},
  {c:'commercial',f:'Commercial/Medical Reception',l:'Medical Reception'},
@@ -259,6 +278,7 @@ function render(reset){
   list.slice(0,limit).forEach((it,idx)=>{
     const b=document.createElement('button');b.className='item';b.dataset.i=idx;b.setAttribute('aria-label','View '+it.l);
     const img=new Image();img.alt=it.l+' - ReHoVa Interiors Singapore';img.loading='lazy';img.decoding='async';
+    img.onload=()=>{img.width=img.naturalWidth;img.height=img.naturalHeight};
     img.onerror=()=>fallback(img,it.f);img.src=it.f+'.webp';
     const cap=document.createElement('span');cap.className='cap';cap.textContent=it.l;
     b.append(img,cap);grid.appendChild(b);
@@ -276,7 +296,8 @@ $('#filters').onclick=e=>{const b=e.target.closest('.f');if(b)setFilter(b.datase
 // Lightbox
 const lb=$('#lb'),lbi=$('#lbi'),lbc=$('#lbc');let k=0,sx=0;
 function show(n){k=(n+list.length)%list.length;const it=list[k],src=grid.querySelectorAll('.item img')[k];
-  lbi.src=src&&src.currentSrc?src.currentSrc:it.f+'.webp';lbi.alt=it.l;
+  lbi.loading='eager';lbi.src=src&&src.currentSrc?src.currentSrc:it.f+'.webp';lbi.alt=it.l+' - ReHoVa Interiors Singapore';
+  lbi.onload=()=>{lbi.width=lbi.naturalWidth;lbi.height=lbi.naturalHeight};
   lbc.innerHTML=it.l+'<small>'+names[it.c]+' &bull; '+(k+1)+' / '+list.length+'</small>'}
 grid.onclick=e=>{const b=e.target.closest('.item');if(b){show(+b.dataset.i);lb.showModal()}};
 lb.querySelector('.lb-x').onclick=()=>lb.close();
