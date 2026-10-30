@@ -161,13 +161,13 @@ dialog::backdrop{background:rgba(10,11,14,.94)}
 
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="brand">
+    <a href="./" class="brand">
       <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="46" height="46">
       <span><b>ReHoVa Interiors Pte Ltd</b><small>Reliable, Honest, Value For Money</small></span>
     </a>
     <button class="burger" id="burger" aria-label="Open Navigation Menu"><i></i><i></i><i></i></button>
     <ul class="links" id="links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="./">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="gallery.html" class="on">Gallery</a></li>
@@ -220,7 +220,7 @@ dialog::backdrop{background:rgba(10,11,14,.94)}
       <div>
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="./">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="faq.html">FAQ</a></li>
@@ -280,7 +280,7 @@ const items=[
  {c:'commercial',f:'Commercial/Reception come waiting area',l:'Reception & Waiting Area'},
  {c:'commercial',f:'Commercial/Reception',l:'Corporate Reception'},
  // Medical & Dental
- {c:'medical',f:'Medical & Dental/Dental Consultation room',l:'Dental Consultation Room'},
+ {c:'medical',f:'Medical & Dental/Dental Consultation room',e:'jpg',l:'Dental Consultation Room'},
  {c:'medical',f:'Medical & Dental/Dental sterilization room with antibacterial laminate',l:'Dental sterilization room with antibacterial laminate'},
  {c:'medical',f:'Medical & Dental/Dental X-ray room',l:'Dental X-Ray Room'},
  // Aquarium
@@ -293,8 +293,9 @@ let cur='all',limit=STEP,list=[];
 // Counts on filter buttons
 document.querySelectorAll('.f').forEach(b=>{const c=b.dataset.c,n=c==='all'?items.length:items.filter(i=>i.c===c).length;b.insertAdjacentHTML('beforeend',`<span>${n}</span>`)});
 
-function fallback(img,base){
-  if(!img.dataset.j){img.dataset.j=1;img.src=base+'.jpg'}
+function imageUrl(item){return item.f+'.'+(item.e||'webp')}
+function fallback(img,base,extension){
+  if(!img.dataset.j&&extension!=='jpg'){img.dataset.j=1;img.src=base+'.jpg'}
   else if(!img.dataset.p){img.dataset.p=1;img.src=base+'.png'}
   else{img.onerror=null;img.closest('.item').style.display='none'}
 }
@@ -307,7 +308,7 @@ function render(reset){
     const b=document.createElement('button');b.className='item';b.dataset.i=idx;b.setAttribute('aria-label','View '+it.l);
     const img=new Image();img.alt=it.l+' - ReHoVa Interiors Singapore';img.loading='lazy';img.decoding='async';
     img.onload=()=>{img.width=img.naturalWidth;img.height=img.naturalHeight};
-    img.onerror=()=>fallback(img,it.f);img.src=it.f+'.webp';
+    img.onerror=()=>fallback(img,it.f,it.e);img.src=imageUrl(it);
     const cap=document.createElement('span');cap.className='cap';cap.textContent=it.l;
     b.append(img,cap);grid.appendChild(b);
   });
@@ -324,7 +325,7 @@ $('#filters').onclick=e=>{const b=e.target.closest('.f');if(b)setFilter(b.datase
 // Lightbox
 const lb=$('#lb'),lbi=$('#lbi'),lbc=$('#lbc');let k=0,sx=0;
 function show(n){k=(n+list.length)%list.length;const it=list[k],src=grid.querySelectorAll('.item img')[k];
-  lbi.loading='eager';lbi.src=src&&src.currentSrc?src.currentSrc:it.f+'.webp';lbi.alt=it.l+' - ReHoVa Interiors Singapore';
+  lbi.loading='eager';lbi.src=src&&src.currentSrc?src.currentSrc:imageUrl(it);lbi.alt=it.l+' - ReHoVa Interiors Singapore';
   lbi.onload=()=>{lbi.width=lbi.naturalWidth;lbi.height=lbi.naturalHeight};
   lbc.innerHTML=it.l+'<small>'+names[it.c]+' &bull; '+(k+1)+' / '+list.length+'</small>'}
 grid.onclick=e=>{const b=e.target.closest('.item');if(b){show(+b.dataset.i);lb.showModal()}};
