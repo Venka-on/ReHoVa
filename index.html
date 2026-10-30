@@ -185,6 +185,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
   .hero h1{font-size:1.05rem}
 }
 @media(max-width:700px){.hero-in{padding-bottom:42px!important}}
+
 </style>
 
 
@@ -294,7 +295,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
   </div>
 </section>
 
-<section class="sec tm" id="testimonials">
+<!-- <section class="sec tm" id="testimonials">
   <div class="wrap"><h2 class="h2">What our customers say</h2></div>
   <div class="marq" aria-label="Customer testimonials"><div class="track" id="track">
     <div class="q">Workmanship on our custom carpentry was neat and solid. The handover was delivered exactly on schedule without any unexpected cost additions.</div>
@@ -302,7 +303,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
     <div class="q">ReHoVa coordinated the renovation milestones smoothly and kept communication open through every stage. Dependable supervision throughout.</div>
     <div class="q">Direct in-house carpentry makes a big difference in cost and alignment. The fabrication quality on our feature wall and wardrobes was excellent.</div>
   </div></div>
-</section>
+</section> -->
 
 <section class="final">
   <div class="wrap">
@@ -314,7 +315,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
   </div>
 </section>
 
-<a class="wa" href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation%20quote." aria-label="Chat with ReHoVa Interiors on WhatsApp" target="_blank" rel="noopener">
+<a class="wa" href="https://wa.me/6562999291?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation%20quote." aria-label="Chat with ReHoVa Interiors on WhatsApp" target="_blank" rel="noopener">
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16c0 2.68.75 5.2 2.06 7.35L2.5 29.5l6.35-1.53A13.91 13.91 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm8.17 19.92c-.34.96-1.7 1.76-2.77 1.99-.73.16-1.68.29-4.88-1.04-4.1-1.7-6.73-5.88-6.94-6.15-.2-.28-1.68-2.24-1.68-4.27s1.06-3.03 1.44-3.44c.38-.41.83-.51 1.1-.51.28 0 .55.01.79.02.26.01.6-.1 1 .84.34.82 1.16 2.83 1.26 3.04.1.2.17.44.03.71-.13.27-.2.44-.4.67-.2.24-.43.53-.61.71-.2.2-.42.42-.18.83.24.41 1.07 1.76 2.3 2.85 1.58 1.41 2.92 1.85 3.33 2.05.41.2.66.17.9-.1.25-.28 1.06-1.24 1.34-1.67.28-.43.56-.36.94-.22.38.14 2.42 1.14 2.83 1.35.41.2.68.3.78.47.1.17.1.99-.24 1.95z" fill="#fff"/></svg>
 </a>
 </main>
@@ -334,7 +335,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
         <li><a href="contact.html">Contact &amp; Showroom</a></li></ul></div>
       <div><h3>Direct Contact</h3><ul>
         <li>Email: <a href="mailto:sales@rehova.sg">sales@rehova.sg</a></li>
-        <li>Phone: <a href="tel:+6582075085">+65 8207 5085</a></li>
+        <li>Phone: <a href="tel:+6562999291">+65 6299 9291</a></li>
         <li>Web: <a href="index.html">Rehova.sg</a></li></ul></div>
     </div>
      <div class="social">
@@ -360,7 +361,7 @@ function go(n){sl[i].classList.remove('on');dots.children[i].classList.remove('o
 function start(){clearInterval(t);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)t=setInterval(()=>go((i+1)%sl.length),5000)}
 dots.children[0].classList.add('on');start();
 // Testimonial loop
-const tr=$('#track');[...tr.children].forEach(c=>{const d=c.cloneNode(true);d.setAttribute('aria-hidden','true');tr.appendChild(d)});
+const tr=$('#track');if(tr)[...tr.children].forEach(c=>{const d=c.cloneNode(true);d.setAttribute('aria-hidden','true');tr.appendChild(d)});
 // Lightbox
 const lb=$('#lb');
 $$('#mosaic button').forEach(b=>b.onclick=()=>{$('#lbi').src=b.querySelector('img').src;lb.showModal()});
