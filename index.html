@@ -43,7 +43,7 @@
   ]
 }
 </script>
-<link rel="preload" as="image" href="showroom-2.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="hero-project-1.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -373,9 +373,10 @@ const nav=$('#nav');addEventListener('scroll',()=>nav.classList.toggle('solid',s
 // Hero slider with dots
 const sl=$$('.slide'),dots=$('#dots');let i=0,t;
 sl.forEach((_,n)=>{const b=document.createElement('button');b.setAttribute('aria-label','Slide '+(n+1));b.onclick=()=>{go(n);start()};dots.appendChild(b)});
-function go(n){sl[i].classList.remove('on');dots.children[i].classList.remove('on');i=n;if(sl[i].dataset.image){sl[i].style.backgroundImage=`url("${sl[i].dataset.image}")`;delete sl[i].dataset.image}sl[i].classList.add('on');dots.children[i].classList.add('on')}
+function loadSlideImage(n){if(sl[n].dataset.image){sl[n].style.backgroundImage=`url("${sl[n].dataset.image}")`;delete sl[n].dataset.image}}
+function go(n){sl[i].classList.remove('on');dots.children[i].classList.remove('on');i=n;loadSlideImage(i);sl[i].classList.add('on');dots.children[i].classList.add('on')}
 function start(){clearInterval(t);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)t=setInterval(()=>go((i+1)%sl.length),5000)}
-dots.children[0].classList.add('on');start();
+loadSlideImage(i);dots.children[0].classList.add('on');start();
 // Lightbox
 const lb=$('#lb'),lbi=$('#lbi');
 $$('#mosaic button').forEach(b=>b.onclick=()=>{const image=b.querySelector('img');lbi.alt=image.alt;lbi.loading='eager';lbi.src=image.currentSrc||image.src;lbi.onload=()=>{lbi.width=lbi.naturalWidth;lbi.height=lbi.naturalHeight};lb.showModal()});
