@@ -82,7 +82,7 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 
 /* Hero */
 .hero{position:relative;height:100svh;min-height:600px;max-height:940px;overflow:hidden;background:var(--ink);color:#fff}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.02);transition:opacity 1.4s ease}
+.slide{position:absolute;inset:0;opacity:0;transform:scale(1.02);transition:opacity 1.4s ease}
 .slide.on{opacity:1;animation:kb 9s ease-out forwards}
 .slide-image{width:100%;height:100%;object-fit:cover}
 @keyframes kb{to{transform:scale(1.12)}}
@@ -163,6 +163,9 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 .final h2{text-shadow:0 2px 14px rgba(0,0,0,.65)}
 .final h2{font-size:clamp(2rem,5.4vw,3.8rem);font-weight:800;margin:0 auto 26px;max-width:16ch}
 .final .btns{justify-content:center}
+.showroom-link{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;color:var(--red);font-size:1.05rem;font-weight:700}
+.final-link{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;color:#fff;font-size:1.05rem;font-weight:700;text-decoration:none}
+.final-link:hover{text-decoration:underline;text-underline-offset:.2em}
 
 /* Footer */
 .foot{background:#14161A;color:#A3A8B1;padding:44px 0 20px;font-size:.88rem}
@@ -236,11 +239,11 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
 </nav>
 
 <header class="hero" id="hero">
-<div class="slide on" data-image="hero-project-1.jpg"></div>
-<div class="slide" data-image="hero-project-2.jpg"></div>
-<div class="slide" data-image="hero-project-3.jpg"></div>
-<div class="slide" data-image="hero-project-4.jpg"></div>
-<div class="slide" data-image="hero-project-6.jpg"></div>
+<div class="slide on"><img class="slide-image" src="hero-project-1.jpg" alt="Bedroom bedside with a pendant light, pale curtains, timber nightstand and layered bedding" fetchpriority="high"></div>
+<div class="slide"><img class="slide-image" src="hero-project-2.jpg" alt="Cream sofa beneath abstract artwork, with timber wall panels and warm accent lighting, carpentry works in Singapore" loading="lazy"></div>
+<div class="slide"><img class="slide-image" src="hero-project-3.jpg" alt="Bright living room with cream sofa, full-height curtains, timber media console and wall-mounted television" loading="lazy"></div>
+<div class="slide"><img class="slide-image" src="hero-project-4.jpg" alt="Bedroom with a large bed, full-height curtains, wall-mounted television and timber media console" loading="lazy"></div>
+<div class="slide"><img class="slide-image" src="hero-project-6.jpg" alt="Kitchen with fitted timber cabinets, sink, counter, dining table and two pendant lights" loading="lazy"></div>
   <div class="dots" id="dots" role="group" aria-label="Hero slides"></div>
   <div class="hero-in">
     <div class="wrap">
@@ -269,12 +272,12 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
       <button class="m1"><img loading="lazy" src="showroom-1.jpg" alt="Timber bar counter with stools and lounge seating, custom carpentry in Singapore" width="2048" height="824"></button>
       <!--<button class="m2"><img loading="lazy" src="Showroom.2.png" alt="Timber-clad showroom entrance with sculpted wall lighting, brand sign and floor plants" width="1832" height="859"></button>-->
       <button class="m4"><img loading="lazy" src="showroom-4.jpg" alt="Beige built-in cabinetry and illuminated timber display shelves, custom carpentry works in Singapore" width="1119" height="944"></button>
-      <button class="m3"><img loading="lazy" src="showroom-3.jpg" alt="Billiard table beside a timber bar and display panels in ReHoVa's carpentry workshop in Singapore" width="1280" height="473"></button>
+      <button class="m3"><img loading="lazy" src="showroom-3.jpg" alt="Snooker table with relaxing seating area and timber bar counter in ReHoVa's showroom, Singapore" width="1280" height="473"></button>
       <button class="m5"><img loading="lazy" src="showroom-5.jpg" alt="Finish samples and display panels around a meeting table beside tall windows" width="1600" height="1297"></button>
       <button class="m6"><img loading="lazy" src="showroom-6.jpg" alt="Bedroom with upholstered bed, built-in wardrobe, open clothing rails and bedside table" width="1600" height="1200"></button>
       <button class="m7"><img loading="lazy" src="showroom-7.jpg" alt="Wide showroom with central material display, large windows and wall of cabinet samples" width="1600" height="875"></button>
       <button class="m8"><img loading="lazy" src="showroom-8.jpg" alt="Dark media wall with television, stone-look panels and pale curved sofa, carpentry services in Singapore" width="1600" height="913"></button>
-      <button class="m9"><img loading="lazy" src="showroom-9.jpg" alt="Kitchen cabinetry and island in an open-plan interior by a kitchen renovation contractor in Singapore" width="1600" height="637"></button>
+      <button class="m9"><img loading="lazy" src="showroom-9.jpg" alt="Kitchen cabinetry and island in an open-plan interior, ReHoVa kitchen renovation in Singapore" width="1600" height="637"></button>
     </div>
     <div class="more"><a href="gallery.html" class="btn btn-dark">View Full Gallery</a></div>
   </div>
@@ -291,7 +294,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
         <li>Test smooth <b>BOXX</b> hardware</li>
         <li>Compare real <b>AROVA</b> laminates and stone tops</li>
       </ul>
-      <a href="contact.html">Book a Showroom Visit →</a>
+      <a class="showroom-link" href="contact.html">Book a Showroom Visit →</a>
     </div>
   </div>
 </section>
@@ -322,8 +325,8 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
   <div class="wrap">
     <h2>Planning a renovation? Let's talk.</h2>
     <div class="btns">
-      <a href="contact.html">Get Free Consultation →</a>
-      <a href="faq.html">Read Renovation FAQ →</a>
+          <a class="final-link" href="contact.html">Get Free Consultation →</a>
+          <a class="final-link" href="faq.html">Read Renovation FAQ →</a>
     </div>
   </div>
 </section>
@@ -370,10 +373,9 @@ const nav=$('#nav');addEventListener('scroll',()=>nav.classList.toggle('solid',s
 // Hero slider with dots
 const sl=$$('.slide'),dots=$('#dots');let i=0,t;
 sl.forEach((_,n)=>{const b=document.createElement('button');b.setAttribute('aria-label','Slide '+(n+1));b.onclick=()=>{go(n);start()};dots.appendChild(b)});
-function loadSlideImage(n){if(sl[n].dataset.image){sl[n].style.backgroundImage=`url("${sl[n].dataset.image}")`;delete sl[n].dataset.image}}
-function go(n){sl[i].classList.remove('on');dots.children[i].classList.remove('on');i=n;loadSlideImage(i);sl[i].classList.add('on');dots.children[i].classList.add('on')}
+function go(n){sl[i].classList.remove('on');dots.children[i].classList.remove('on');i=n;sl[i].classList.add('on');dots.children[i].classList.add('on')}
 function start(){clearInterval(t);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)t=setInterval(()=>go((i+1)%sl.length),5000)}
-loadSlideImage(i);dots.children[0].classList.add('on');start();
+dots.children[0].classList.add('on');start();
 // Lightbox
 const lb=$('#lb'),lbi=$('#lbi');
 $$('#mosaic button').forEach(b=>b.onclick=()=>{const image=b.querySelector('img');lbi.alt=image.alt;lbi.loading='eager';lbi.src=image.currentSrc||image.src;lbi.onload=()=>{lbi.width=lbi.naturalWidth;lbi.height=lbi.naturalHeight};lb.showModal()});
