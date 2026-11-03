@@ -100,7 +100,7 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 .btn-line{border:2px solid rgba(255,255,255,.9);color:#fff}
 .btn-line:hover{background:#fff;color:var(--ink)}
 .btn-dark{border:2px solid var(--ink);color:var(--ink)}.btn-dark:hover{background:var(--ink);color:#fff}
-.dots{position:absolute;z-index:5;right:22px;bottom:70px;display:flex;gap:6px}
+.dots{position:absolute;z-index:6;right:22px;bottom:70px;display:flex;gap:6px}
 .dots button{width:26px;height:4px;border:0;background:rgba(255,255,255,.4);cursor:pointer;border-radius:2px;padding:0}
 .dots button.on{background:var(--red)}
 @media(max-width:700px){.dots{right:auto;left:22px;bottom:26px}.hero-in{padding-bottom:64px}.btn{flex:1 1 100%;text-align:center}}
@@ -219,7 +219,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
 <nav class="nav" id="nav">
   <div class="wrap">
     <a href="./" class="brand">
-      <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="46" height="46">
+      <img src="rehova.png" alt="ReHoVa house-shaped logo in red, black and grey" width="46" height="46">
       <span><b>ReHoVa Interiors Pte Ltd</b><small>Reliable, Honest, Value For Money</small></span>
     </a>
     <button class="burger" id="burger" aria-label="Open Navigation Menu"><i></i><i></i><i></i></button>
@@ -236,9 +236,6 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
 </nav>
 
 <header class="hero" id="hero">
-<!-- Temporarily hidden; uncomment to restore this hero image.
-<div class="slide on"><img class="slide-image" src="showroom-2.jpg" width="1832" height="859" fetchpriority="high" alt=""></div>
--->
 <div class="slide on" data-image="hero-project-1.jpg"></div>
 <div class="slide" data-image="hero-project-2.jpg"></div>
 <div class="slide" data-image="hero-project-3.jpg"></div>
@@ -269,15 +266,15 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
     <h2 class="h2">Inside our showroom</h2>
     <!--<p class="lead">Tap any photo to see it larger.</p>-->
     <div class="mosaic" id="mosaic">
-      <button class="m1"><img loading="lazy" src="showroom-1.jpg" alt="ReHoVa showroom photo 1" width="2048" height="824"></button>
-      <!--<button class="m2"><img loading="lazy" src="Showroom.2.png" alt="ReHoVa showroom photo 2" width="1832" height="859"></button>-->
-      <button class="m4"><img loading="lazy" src="showroom-4.jpg" alt="ReHoVa showroom photo 4" width="1119" height="944"></button>
-      <button class="m3"><img loading="lazy" src="showroom-3.jpg" alt="ReHoVa showroom photo 3" width="1280" height="473"></button>
-      <button class="m5"><img loading="lazy" src="showroom-5.jpg" alt="ReHoVa showroom photo 5" width="1600" height="1297"></button>
-      <button class="m6"><img loading="lazy" src="showroom-6.jpg" alt="ReHoVa showroom photo 6" width="1600" height="1200"></button>
-      <button class="m7"><img loading="lazy" src="showroom-7.jpg" alt="ReHoVa showroom photo 7" width="1600" height="875"></button>
-      <button class="m8"><img loading="lazy" src="showroom-8.jpg" alt="ReHoVa showroom photo 8" width="1600" height="913"></button>
-      <button class="m9"><img loading="lazy" src="showroom-9.jpg" alt="ReHoVa showroom photo 9" width="1600" height="637"></button>
+      <button class="m1"><img loading="lazy" src="showroom-1.jpg" alt="Timber bar counter with stools and lounge seating, custom carpentry in Singapore" width="2048" height="824"></button>
+      <!--<button class="m2"><img loading="lazy" src="Showroom.2.png" alt="Timber-clad showroom entrance with sculpted wall lighting, brand sign and floor plants" width="1832" height="859"></button>-->
+      <button class="m4"><img loading="lazy" src="showroom-4.jpg" alt="Beige built-in cabinetry and illuminated timber display shelves, custom carpentry works in Singapore" width="1119" height="944"></button>
+      <button class="m3"><img loading="lazy" src="showroom-3.jpg" alt="Billiard table beside a timber bar and display panels in ReHoVa's carpentry workshop in Singapore" width="1280" height="473"></button>
+      <button class="m5"><img loading="lazy" src="showroom-5.jpg" alt="Finish samples and display panels around a meeting table beside tall windows" width="1600" height="1297"></button>
+      <button class="m6"><img loading="lazy" src="showroom-6.jpg" alt="Bedroom with upholstered bed, built-in wardrobe, open clothing rails and bedside table" width="1600" height="1200"></button>
+      <button class="m7"><img loading="lazy" src="showroom-7.jpg" alt="Wide showroom with central material display, large windows and wall of cabinet samples" width="1600" height="875"></button>
+      <button class="m8"><img loading="lazy" src="showroom-8.jpg" alt="Dark media wall with television, stone-look panels and pale curved sofa, carpentry services in Singapore" width="1600" height="913"></button>
+      <button class="m9"><img loading="lazy" src="showroom-9.jpg" alt="Kitchen cabinetry and island in an open-plan interior by a kitchen renovation contractor in Singapore" width="1600" height="637"></button>
     </div>
     <div class="more"><a href="gallery.html" class="btn btn-dark">View Full Gallery</a></div>
   </div>
@@ -285,7 +282,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
 
 <section class="sec" style="background:var(--w)" id="showroom">
   <div class="wrap split">
-    <div class="split-wrap"><div class="split-img"><img loading="lazy" src="showroom-2.jpg" alt="ReHoVa custom carpentry interior showroom with curved joinery" width="1832" height="859"></div></div>
+    <div class="split-wrap"><div class="split-img"><img loading="lazy" src="showroom-2.jpg" alt="Curved backlit timber wall and illuminated ReHoVa sign framed by indoor plants" width="1832" height="859"></div></div>
     <div>
       <h2 class="h2">Touch, feel and sense the workmanship</h2>
       <p>3D drawings only show looks. Visit our showroom and see our workmanship for yourself before you decide.</p>
@@ -294,7 +291,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
         <li>Test smooth <b>BOXX</b> hardware</li>
         <li>Compare real <b>AROVA</b> laminates and stone tops</li>
       </ul>
-      <a href="contact.html" class="btn btn-red">Book a Showroom Visit</a>
+      <a href="contact.html">Book a Showroom Visit →</a>
     </div>
   </div>
 </section>
@@ -325,8 +322,8 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
   <div class="wrap">
     <h2>Planning a renovation? Let's talk.</h2>
     <div class="btns">
-      <a href="contact.html" class="btn btn-red">Get Free Consultation</a>
-      <a href="faq.html" class="btn btn-line">Read Renovation FAQ</a>
+      <a href="contact.html">Get Free Consultation →</a>
+      <a href="faq.html">Read Renovation FAQ →</a>
     </div>
   </div>
 </section>
@@ -363,7 +360,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
   </div>
 </footer>
 
-<dialog id="lb"><img id="lbi" alt="Selected ReHoVa project image" width="1" height="1" loading="lazy"><button aria-label="Close">&times;</button></dialog>
+<dialog id="lb"><img id="lbi" alt="Enlarged view of the selected showroom interior" width="1" height="1" loading="lazy"><button aria-label="Close">&times;</button></dialog>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
