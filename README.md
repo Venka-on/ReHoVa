@@ -12,6 +12,5 @@ image folders (`Aquarium/`, `Commercial/`, `Medical & Dental/`, and
 `Residential/`) alongside the HTML files.
 
 Before launch:
-- Replace `YOUR_FORM_ID` in `contact.html` with the real Formspree form ID.
-- Confirm the operating hours shown on `contact.html`.
+- Confirm PHP mail delivery is enabled for `contact.php` on Exabytes.
 - Review the project images and page text for accuracy.
