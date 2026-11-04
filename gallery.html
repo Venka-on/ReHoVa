@@ -105,10 +105,12 @@ h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.02em}
 .grid{columns:1;column-gap:14px;padding:30px 0 20px}
 @media(min-width:560px){.grid{columns:2}}
 @media(min-width:960px){.grid{columns:3}}
-.item{position:relative;break-inside:avoid;margin-bottom:14px;border-radius:6px;overflow:hidden;background:#D9D5CF;min-height:160px;cursor:zoom-in;border:0;padding:0;display:block;width:100%}
+.project-card{break-inside:avoid;margin:0 0 14px}
+.item{position:relative;border-radius:6px;overflow:hidden;background:#D9D5CF;min-height:160px;cursor:zoom-in;border:0;padding:0;display:block;width:100%}
 .item img{width:100%;height:auto;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .item:hover img{transform:scale(1.06)}
 .item .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;text-align:left;color:#fff;font:700 1rem var(--head);background:linear-gradient(to top,rgba(27,30,36,.9),transparent);opacity:1}
+.project-caption{padding:7px 3px 0;color:var(--mute);font-size:.88rem}
 @media(hover:hover){.item .cap{opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}.item:hover .cap,.item:focus-visible .cap{opacity:1;transform:none}}
 .more{text-align:center;padding:10px 0 60px}
 .btn{display:inline-block;padding:15px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:1rem;border:0;cursor:pointer;font-family:var(--body);transition:transform .2s,background .2s,color .2s}
@@ -183,7 +185,7 @@ dialog::backdrop{background:rgba(10,11,14,.94)}
 <header class="banner">
   <div class="wrap">
     <h1>Renovation Project Gallery in Singapore</h1>
-    <p>Explore our workmanship across commercial spaces, medical suites, residential apartments, and custom structural builds.</p>
+    <p>Explore ReHoVa Interiors’ residential and commercial renovation work, including medical and dental spaces and custom carpentry. This gallery brings together examples of completed interiors and cabinetry across different settings. Visit our showroom at 217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810 to see materials in person, and request a clear quotation for your project.</p>
   </div>
 </header>
 
@@ -308,12 +310,15 @@ function render(reset){
   list=cur==='all'?items:items.filter(i=>i.c===cur);
   grid.innerHTML='';
   list.slice(0,limit).forEach((it,idx)=>{
+    const figure=document.createElement('figure');figure.className='project-card';
     const b=document.createElement('button');b.className='item';b.dataset.i=idx;b.setAttribute('aria-label','View '+it.l);
     const img=new Image();img.alt=it.l+' - ReHoVa Interiors Singapore';img.loading='lazy';img.decoding='async';
     img.onload=()=>{img.width=img.naturalWidth;img.height=img.naturalHeight};
     img.onerror=()=>fallback(img,it.f,it.e);img.src=imageUrl(it);
     const cap=document.createElement('span');cap.className='cap';cap.textContent=it.l;
-    b.append(img,cap);grid.appendChild(b);
+    b.append(img,cap);figure.appendChild(b);
+    const caption=document.createElement('figcaption');caption.className='project-caption';caption.textContent=names[it.c]+': '+it.l;
+    figure.appendChild(caption);grid.appendChild(figure);
   });
   more.innerHTML='';
   if(limit<list.length){const m=document.createElement('button');m.className='btn btn-dark';m.textContent='Load More Projects';m.onclick=()=>{limit+=STEP;render(false)};more.appendChild(m)}
