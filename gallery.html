@@ -105,12 +105,10 @@ h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.02em}
 .grid{columns:1;column-gap:14px;padding:30px 0 20px}
 @media(min-width:560px){.grid{columns:2}}
 @media(min-width:960px){.grid{columns:3}}
-.project-card{break-inside:avoid;margin:0 0 14px}
-.item{position:relative;border-radius:6px;overflow:hidden;background:#D9D5CF;min-height:160px;cursor:zoom-in;border:0;padding:0;display:block;width:100%}
+.item{position:relative;break-inside:avoid;margin-bottom:14px;border-radius:6px;overflow:hidden;background:#D9D5CF;min-height:160px;cursor:zoom-in;border:0;padding:0;display:block;width:100%}
 .item img{width:100%;height:auto;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .item:hover img{transform:scale(1.06)}
 .item .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;text-align:left;color:#fff;font:700 1rem var(--head);background:linear-gradient(to top,rgba(27,30,36,.9),transparent);opacity:1}
-.project-caption{padding:7px 3px 0;color:var(--mute);font-size:.88rem}
 @media(hover:hover){.item .cap{opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}.item:hover .cap,.item:focus-visible .cap{opacity:1;transform:none}}
 .more{text-align:center;padding:10px 0 60px}
 .btn{display:inline-block;padding:15px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:1rem;border:0;cursor:pointer;font-family:var(--body);transition:transform .2s,background .2s,color .2s}
@@ -299,6 +297,10 @@ let cur='all',limit=STEP,list=[];
 document.querySelectorAll('.f').forEach(b=>{const c=b.dataset.c,n=c==='all'?items.length:items.filter(i=>i.c===c).length;b.insertAdjacentHTML('beforeend',`<span>${n}</span>`)});
 
 function imageUrl(item){return item.f+'.'+(item.e||'webp')}
+function imageAlt(item){
+  const title=item.c==='aquarium'?'Aquarium Cabinet '+item.f.match(/Aquarium\.(\d+)$/)[1]:item.l;
+  return names[item.c]+': '+title;
+}
 function fallback(img,base,extension){
   if(!img.dataset.j&&extension!=='jpg'){img.dataset.j=1;img.src=base+'.jpg'}
   else if(!img.dataset.p){img.dataset.p=1;img.src=base+'.png'}
@@ -310,15 +312,12 @@ function render(reset){
   list=cur==='all'?items:items.filter(i=>i.c===cur);
   grid.innerHTML='';
   list.slice(0,limit).forEach((it,idx)=>{
-    const figure=document.createElement('figure');figure.className='project-card';
     const b=document.createElement('button');b.className='item';b.dataset.i=idx;b.setAttribute('aria-label','View '+it.l);
-    const img=new Image();img.alt=it.l+' - ReHoVa Interiors Singapore';img.loading='lazy';img.decoding='async';
+    const img=new Image();img.alt=imageAlt(it);img.loading='lazy';img.decoding='async';
     img.onload=()=>{img.width=img.naturalWidth;img.height=img.naturalHeight};
     img.onerror=()=>fallback(img,it.f,it.e);img.src=imageUrl(it);
     const cap=document.createElement('span');cap.className='cap';cap.textContent=it.l;
-    b.append(img,cap);figure.appendChild(b);
-    const caption=document.createElement('figcaption');caption.className='project-caption';caption.textContent=names[it.c]+': '+it.l;
-    figure.appendChild(caption);grid.appendChild(figure);
+    b.append(img,cap);grid.appendChild(b);
   });
   more.innerHTML='';
   if(limit<list.length){const m=document.createElement('button');m.className='btn btn-dark';m.textContent='Load More Projects';m.onclick=()=>{limit+=STEP;render(false)};more.appendChild(m)}
@@ -333,7 +332,7 @@ $('#filters').onclick=e=>{const b=e.target.closest('.f');if(b)setFilter(b.datase
 // Lightbox
 const lb=$('#lb'),lbi=$('#lbi'),lbc=$('#lbc');let k=0,sx=0;
 function show(n){k=(n+list.length)%list.length;const it=list[k],src=grid.querySelectorAll('.item img')[k];
-  lbi.loading='eager';lbi.src=src&&src.currentSrc?src.currentSrc:imageUrl(it);lbi.alt=it.l+' - ReHoVa Interiors Singapore';
+  lbi.loading='eager';lbi.src=src&&src.currentSrc?src.currentSrc:imageUrl(it);lbi.alt=imageAlt(it);
   lbi.onload=()=>{lbi.width=lbi.naturalWidth;lbi.height=lbi.naturalHeight};
   lbc.innerHTML=it.l+'<small>'+names[it.c]+' &bull; '+(k+1)+' / '+list.length+'</small>'}
 grid.onclick=e=>{const b=e.target.closest('.item');if(b){show(+b.dataset.i);lb.showModal()}};
