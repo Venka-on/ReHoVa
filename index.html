@@ -34,39 +34,157 @@
   "@type": "HomeAndConstructionBusiness",
   "@id": "https://rehova.sg/#business",
   "name": "ReHoVa Interiors Pte Ltd",
+  "legalName": "ReHoVa Interiors Pte Ltd",
   "url": "https://rehova.sg/",
   "logo": "https://rehova.sg/rehova.png",
   "image": "https://rehova.sg/showroom-2.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "UEN",
+    "value": "201711139N"
+  },
+  "foundingDate": "2017",
+  "description": "Affordable residential renovation for condominium and landed properties, commercial fit-out for offices, retail and F&B, and in-house carpentry, X-ray room construction, dental clinic full renovation, and medical clinic full renovation in Singapore. Pricing depends on the materials customers choose.",
   "telephone": "+65 6299 9291",
   "email": "sales@rehova.sg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+65 6299 9291",
+    "email": "sales@rehova.sg",
+    "url": "https://wa.me/6582075085"
+  },
   "areaServed": {
     "@type": "Country",
     "name": "Singapore"
   },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "opens": "09:00",
-    "closes": "18:00"
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 1.3360269,
+    "longitude": 103.8951922
   },
+  "hasMap": "https://www.google.com/maps?q=1.3360269,103.8951922",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810",
+    "streetAddress": "217 Ubi Avenue 4, Intrepid Warehouse Complex",
     "addressLocality": "Singapore",
-    "postalCode": "408810",
     "addressCountry": "SG"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Renovation and Carpentry Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Home renovation for condominium and landed properties"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial fit-out for office, retail and F&B"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "In-house carpentry"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "X-ray room construction"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Dental clinic full renovation"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Medical clinic full renovation"
+        }
+      }
+    ]
   },
   "sameAs": [
     "https://www.instagram.com/rehovainteriors/",
     "https://www.tiktok.com/@rehovainteriors",
     "https://www.facebook.com/people/Rehova-Interiors/61594820848254/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What services does ReHoVa Interiors offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Services include home renovation for condominium and landed properties, commercial fit-out for offices, retail and F&B, in-house carpentry, X-ray room construction, and full dental and medical clinic renovation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What residential and commercial projects do you handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Residential renovation covers condominium and landed properties. Commercial fit-out covers offices, retail and F&B."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have in-house carpentry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ReHoVa Interiors provides in-house carpentry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I request a renovation quote?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Share your project requirements using the contact form, or contact ReHoVa Interiors by phone, WhatsApp or email."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does ReHoVa Interiors provide services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ReHoVa Interiors provides services in Singapore."
+      }
+    }
   ]
 }
 </script>
@@ -187,6 +305,10 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 .final{position:relative;color:#fff;text-align:center;background:var(--ink) url('Aquarium/Aquarium.7.webp') center/cover;padding:clamp(80px,12vw,140px) 0}
 .final .wrap{position:relative}
 .final::before{content:"";position:absolute;inset:0;background:rgba(27,30,36,.78)}
+.home-faq .wrap{max-width:980px}
+.home-faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.home-faq summary{font-weight:700;cursor:pointer}
+.home-faq p{margin-top:8px;color:var(--mute)}
 .final h2{text-shadow:0 2px 14px rgba(0,0,0,.65)}
 .final h2{font-size:clamp(2rem,5.4vw,3.8rem);font-weight:800;margin:0 auto 26px;max-width:16ch}
 .final .btns{justify-content:center}
@@ -347,6 +469,32 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
   </div>
 </section>
 
+<section class="sec home-faq" id="faq">
+  <div class="wrap">
+    <h2 class="h2">Renovation FAQs</h2>
+    <details>
+      <summary>What services does ReHoVa Interiors offer?</summary>
+      <p>Services include home renovation for condominium and landed properties, commercial fit-out for offices, retail and F&amp;B, in-house carpentry, X-ray room construction, and full dental and medical clinic renovation.</p>
+    </details>
+    <details>
+      <summary>What residential and commercial projects do you handle?</summary>
+      <p>Residential renovation covers condominium and landed properties. Commercial fit-out covers offices, retail and F&amp;B.</p>
+    </details>
+    <details>
+      <summary>Do you have in-house carpentry?</summary>
+      <p>Yes. ReHoVa Interiors provides in-house carpentry.</p>
+    </details>
+    <details>
+      <summary>How can I request a renovation quote?</summary>
+      <p>Share your project requirements using the contact form, or contact ReHoVa Interiors by phone, WhatsApp or email.</p>
+    </details>
+    <details>
+      <summary>Where does ReHoVa Interiors provide services?</summary>
+      <p>ReHoVa Interiors provides services in Singapore.</p>
+    </details>
+  </div>
+</section>
+
 <section class="final">
   <div class="wrap">
     <h2>Planning a renovation? Let's talk.</h2>
@@ -368,6 +516,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
       <div>
         <h3>ReHoVa Interiors Pte Ltd</h3>
         <p>Reliable, Honest, Value For Money</p>
+        <p>Established 2017 | UEN 201711139N</p>
         <p>217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810</p>
       </div>
       <div><h3>Quick Links</h3><ul>

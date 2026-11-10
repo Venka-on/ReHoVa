@@ -57,13 +57,20 @@
 <style>
 :root{--red:#D91A1E;--ink:#1B1E24;--stone:#F6F4F1;--mute:#5F6570;--head:"Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box}
-body{min-height:100vh;margin:0;padding:24px;display:grid;place-items:center;background:var(--stone);color:var(--ink);font:16px/1.6 "Segoe UI",system-ui,sans-serif;text-align:center}
+body{min-height:100vh;margin:0;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:var(--stone);color:var(--ink);font:16px/1.6 "Segoe UI",system-ui,sans-serif;text-align:center}
 main{max-width:620px}
 img{width:72px;height:72px;object-fit:contain}
 h1{font:800 clamp(2rem,6vw,3rem)/1.1 var(--head);letter-spacing:-.03em;margin:28px 0 12px}
 p{color:var(--mute);margin:0 auto 28px}
 a{display:inline-block;padding:13px 22px;border-radius:6px;background:var(--red);color:#fff;font-weight:700;text-decoration:none}
 a:hover{background:#B91418}
+.foot{width:min(620px,100%);padding:16px;background:#14161A;color:#A3A8B1;border-radius:6px;font-size:.9rem}
+.foot p{margin:0 auto 12px}
+.foot a{padding:0;background:none;color:#fff}
+.foot a:hover{color:#fff}
+.social{display:flex;justify-content:center;gap:12px}
+.social a{width:42px;height:42px;border:1px solid #3A3E46;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#A3A8B1}
+.social svg{width:20px;height:20px}
 </style>
 </head>
 <body>
@@ -74,5 +81,13 @@ a:hover{background:#B91418}
   <p>217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810<br><a href="tel:+6562999291">Phone +65 6299 9291</a><br><a href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation.">WhatsApp +65 8207 5085</a></p>
   <a href="./">Back to home</a>
 </main>
+<footer class="foot">
+  <p>217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore<br><a href="tel:+6562999291">+65 6299 9291</a> · <a href="mailto:sales@rehova.sg">sales@rehova.sg</a> · <a href="https://wa.me/6582075085">WhatsApp +65 8207 5085</a></p>
+  <div class="social">
+    <a href="https://www.instagram.com/rehovainteriors/" target="_blank" rel="noopener noreferrer" aria-label="ReHoVa on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="https://www.facebook.com/people/Rehova-Interiors/61594820848254/" target="_blank" rel="noopener noreferrer" aria-label="ReHoVa on Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    <a href="https://www.tiktok.com/@rehovainteriors" target="_blank" rel="noopener noreferrer" aria-label="ReHoVa on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+  </div>
+</footer>
 </body>
 </html>
